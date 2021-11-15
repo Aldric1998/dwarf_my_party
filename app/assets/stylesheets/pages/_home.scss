@@ -1,14 +1,19 @@
 // Specific CSS for your home-page
 .home-page {
-  background-color: #D8B4A0;
+  background-color: #EFF1F3;
 }
 
+.container-banner {
+margin-left: 40px;
+margin-right: 40px;
+}
 
 .banner {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
   border-radius: 10px;
+
 }
 
 .banner h1 {
