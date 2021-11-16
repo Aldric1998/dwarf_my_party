@@ -15,7 +15,16 @@ margin-right: 40px;
   border-radius: 10px;
 
 }
+#azerty {
+  background-image: url('../../images/picture_2.png');
+}
 
+.back {
+  background-color: aqua;
+}
+.gif {
+  border-radius: 4px;
+}
 .banner h1 {
   margin: 0;
   color: white;
@@ -29,4 +38,22 @@ margin-right: 40px;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+.my-nav{
+position: absolute;
+z-index: 10;
+width: 100%;
+}
+
+.carousel-item {
+  height: 100vh;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body{
+  background-color: black;
 }
