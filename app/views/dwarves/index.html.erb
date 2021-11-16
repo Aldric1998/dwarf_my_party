@@ -5,9 +5,10 @@
           <div class="card">
             <%= dwarf.name %>
             <%= dwarf.price %>
+            <%= cl_image_tag dwarf.picture.key, height: 180, width: 180, crop: :fill %>
             <hr>
             <%= "Availability: #{dwarf.availability}"  %>
-            <%= link_to "More", dwarf_path%>
+            <%= link_to "More", dwarf_path(dwarf)%>
           </div>
       </div>
     <% end %>

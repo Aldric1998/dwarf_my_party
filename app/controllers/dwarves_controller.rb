@@ -1,4 +1,6 @@
 class DwarvesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :index]
+
   def index
     @dwarves = Dwarf.all
   end
@@ -9,6 +11,7 @@ class DwarvesController < ApplicationController
 
   def create
     @dwarf = Dwarf.new(dwarf_params)
+    @dwarf.user = current_user
     @dwarf.save
     redirect_to dwarf_path(@dwarf)
   end
