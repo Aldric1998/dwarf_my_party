@@ -1,2 +1,17 @@
-<h1>Dwarves#index</h1>
-<p>Find me in app/views/dwarves/index.html.erb</p>
+<h1>Dwarves</h1>
+  <div class="row">
+    <% @dwarves.each do |dwarf| %>
+       <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <%= dwarf.name %>
+            <%= dwarf.price %>
+            <hr>
+            <%= "Availability: #{dwarf.availability}"  %>
+            <%= link_to "More", dwarf_path%>
+          </div>
+      </div>
+    <% end %>
+    <hr>
+     <%= link_to "Add", new_dwarf_path%>
+    <hr>
+  </div>
