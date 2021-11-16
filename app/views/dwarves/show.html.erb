@@ -4,4 +4,4 @@
 <p><%= @dwarf.description %></p>
 <p><%= @dwarf.localisation %></p>
 <p><%= @dwarf.availability %></p>
-<p><%= @dwarf.picture %></p>
+<p><%= cl_image_tag @dwarf.picture.key, height: 300, width: 400, crop: :fill %></p>
