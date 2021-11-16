@@ -1,22 +1,18 @@
 class ReviewsController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
   def create
+    @offer = offer.find(params[:offer_id])
+    @review = Review.new(review_params)
+    @review.offer = @offer
+    if @review.save
+      redirect_to offer_path(@offer)
+    else
+      render "offers/show"
+    end
   end
 
-  def edit
-  end
+  private
 
-  def update
-  end
-
-  def destroy
+  def review_params
+    params.require(:review).permit(:comment, :rating)
   end
 end
