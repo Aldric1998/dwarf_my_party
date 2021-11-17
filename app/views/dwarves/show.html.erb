@@ -5,3 +5,5 @@
 <p><%= @dwarf.localisation %></p>
 <p><%= @dwarf.availability %></p>
 <p><%= cl_image_tag @dwarf.picture.key, height: 300, width: 400, crop: :fill %></p>
+<hr>
+<p><%= link_to 'place your bookings here', new_dwarf_offer_path(@dwarf)%></p>
