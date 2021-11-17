@@ -12,12 +12,14 @@ class DwarvesController < ApplicationController
   def create
     @dwarf = Dwarf.new(dwarf_params)
     @dwarf.user = current_user
+    @dwarf.availability = true
     @dwarf.save
     redirect_to dwarf_path(@dwarf)
   end
 
   def show
     @dwarf = Dwarf.find(params[:id])
+    @offer = @dwarf.offers.where(user: current_user).last
   end
 
   private

@@ -9,6 +9,7 @@ class OffersController < ApplicationController
     @dwarf = Dwarf.find(params[:dwarf_id])
     @offer.dwarf = @dwarf
     @offer.user = current_user
+    @dwarf.availability = false
     if @offer.save
       redirect_to dwarf_path(@dwarf)
     else
@@ -16,11 +17,11 @@ class OffersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def update
-
+  def destroy
+    @offer = Offer.find(params[:id])
+    @dwarf = @offer.dwarf
+    @offer.destroy
+    redirect_to dwarf_path(@dwarf)
   end
 
   private

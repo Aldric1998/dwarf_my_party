@@ -4,6 +4,11 @@
 <p><%= @dwarf.description %></p>
 <p><%= @dwarf.localisation %></p>
 <p><%= @dwarf.availability %></p>
+<% if @dwarf.picture.attached?%>
 <p><%= cl_image_tag @dwarf.picture.key, height: 300, width: 400, crop: :fill %></p>
+<%end%>
 <hr>
 <p><%= link_to 'place your bookings here', new_dwarf_offer_path(@dwarf)%></p>
+<% unless @offer.nil? %>
+<p><%= link_to 'cancel your booking', offer_path(@offer), method: "delete", data: { confirm: "Are you sure?" }%></p>
+<% end %>
