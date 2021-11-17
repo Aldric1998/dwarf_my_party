@@ -16,11 +16,26 @@ margin-right: 40px;
 
 }
 #azerty {
-  background-image: url('../../images/picture_2.png');
+  background-image: asset-url('ananas.png');
+  background-size: cover;
+  height: 700px;
+}
+
+#zerty {
+  background-image: asset-url('super.png');
+  background-size: cover;
+  height: 700px;
+}
+#erty {
+  background-image: asset-url('bollinger.png');
+  background-size: cover;
+  height: 700px;
 }
 
 .back {
-  background-color: aqua;
+  background-color: rgb(239, 241, 243);
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .gif {
   border-radius: 4px;
@@ -47,13 +62,15 @@ width: 100%;
 
 .carousel-item {
   height: 100vh;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+
+
   background-size: cover;
 }
 
 body{
   background-color: black;
+}
+#style {
+  margin-left: 50px;
+  margin-top: 40px;
 }
