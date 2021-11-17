@@ -15,14 +15,20 @@
 
     <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://cdn-icons-png.flaticon.com/512/809/809042.png" %>
-     <h2>Dwarf My Party</h2>
+      <%= image_tag "https://cdn-icons-png.flaticon.com/512/809/809042.png" %><h2>Dwarf My Party</h2>
       <% end %>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      <form role="search">
+        <div>
+          <input type="search" id="maRecherche" name="q"
+            placeholder="Rechercher sur le site…"
+            aria-label="Rechercher parmi le contenu du site">
+          <button>Rechercher</button>
+        </div>
+      </form>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -30,7 +36,7 @@
           <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Dwarves", dwarves_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://cdn4.iconfinder.com/data/icons/e-commerce-181/512/477_profile__avatar__man_-1024.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -64,8 +70,7 @@
     <% end %>
 
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
 
     <div class="footer">
       <div class="footer-links">

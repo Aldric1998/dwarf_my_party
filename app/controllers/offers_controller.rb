@@ -1,6 +1,7 @@
 class OffersController < ApplicationController
   def new
     @offer = Offer.new
+    @dwarf = Dwarf.find(params[:dwarf_id])
   end
 
   def create
@@ -8,9 +9,11 @@ class OffersController < ApplicationController
     @dwarf = Dwarf.find(params[:dwarf_id])
     @offer.dwarf = @dwarf
     @offer.user = current_user
-    @offer.save
-
-    redirect_to dwarf_path(@offer)
+    if @offer.save
+      redirect_to dwarf_path(@dwarf)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,6 +26,6 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:start_date, :end_date, :message, :status)
+    params.require(:offer).permit(:starts_at, :ends_at, :message, :status)
   end
 end
