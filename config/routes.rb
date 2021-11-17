@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   # resources :dwarves
 
   resources :dwarves, only: %i[index show new create] do
-    resources :offers, only: %i[new create edit update]
+    resources :offers, only: %i[new create]
   end
-  resources :offers, only: %i[new create edit update] do
+  resources :offers, only: %i[destroy] do
     resources :reviews, only: %i[create]
   end
   root to: 'pages#home'
