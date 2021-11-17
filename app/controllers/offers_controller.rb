@@ -10,7 +10,7 @@ class OffersController < ApplicationController
     @offer.dwarf = @dwarf
     @offer.user = current_user
     if @offer.save
-      redirect_to dwarf_path(@offer)
+      redirect_to dwarf_path(@dwarf)
     else
       render :new
     end
