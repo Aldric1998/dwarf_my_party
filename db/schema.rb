@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_16_162706) do
+ActiveRecord::Schema.define(version: 2021_11_17_100852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2021_11_16_162706) do
   end
 
   create_table "offers", force: :cascade do |t|
-    t.string "start_date"
-    t.string "end_date"
+    t.string "starts_at"
+    t.string "ends_at"
     t.string "message"
     t.string "status"
     t.bigint "dwarf_id", null: false
