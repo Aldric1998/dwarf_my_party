@@ -1,10 +1,15 @@
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 <h1>Dwarves</h1>
     <br>
     <div class="alignadd"><%= link_to "Add", new_dwarf_path%></div>
   <div class="row">
     <% @dwarves.each do |dwarf| %>
-       <div class="col-xs-12 col-sm-4">
-          <div class="card-product">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-product">
           <% if dwarf.picture.attached?%>
             <%= cl_image_tag dwarf.picture.key, height: 50, width: 50, crop: :fill %>
           <% end %>
@@ -15,16 +20,8 @@
             <p> <%=dwarf.availability ? "available" : "not available"%></p>
             <br>
             <%= link_to "More", dwarf_path(dwarf)%>
-          </div>
-      </div>
-      <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    <% end %>
-    <hr>
-     <%= link_to "Add", new_dwarf_path%>
-    <hr>
         </div>
-    <%end%>
+      </div>
+     <%= link_to "Add", new_dwarf_path%>
+     <% end %>
   </div>
