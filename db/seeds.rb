@@ -28,10 +28,10 @@ users = [aldric, nico, romain, arthur]
 puts 'Creating 10 fake dwarves...'
 10.times do
   dwarf = Dwarf.new(
-    name:    Faker::Name,
+    name: Faker::Name,
     description: Faker::Lorem,
     localisation: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    price:  rand(0..20),
+    price: rand(0..20),
     user_id: users.sample,
     availability: false
   )
