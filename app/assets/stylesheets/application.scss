@@ -11,6 +11,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "users/new";
 
 
 
@@ -43,6 +44,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: #EFF1F3;
+  display: flex;
 }
 
 .navbar-lewagon .navbar-collapse {
