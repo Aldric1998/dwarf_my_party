@@ -1,20 +1,18 @@
-<div class="dwarves-container">
-  <h1>Dwarves</h1>
-    <div class="row">
-      <% @dwarves.each do |dwarf| %>
-        <div class="col-xs-12 col-sm-4">
-            <div class="card">
-              <%= dwarf.name %>
-              <%= dwarf.price %>
-              <%# <%= cl_image_tag dwarf.picture.key, height: 180, width: 180, crop: :fill %> %>
-              <hr>
-              <%= "Availability: #{dwarf.availability}"  %>
-              <%= link_to "More", dwarf_path(dwarf)%>
-            </div>
-        </div>
-      <% end %>
-      <hr>
-      <%= link_to "Add", new_dwarf_path%>
-      <hr>
-    </div>
-</div>
+<h1>Dwarves</h1>
+  <div class="row">
+    <% @dwarves.each do |dwarf| %>
+       <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <%= dwarf.name %>
+            <%= dwarf.price %>
+            <%= cl_image_tag dwarf.picture.key, height: 180, width: 180, crop: :fill %>
+            <hr>
+            <%= "Availability: #{dwarf.availability}"  %>
+            <%= link_to "More", dwarf_path(dwarf)%>
+          </div>
+      </div>
+    <% end %>
+    <hr>
+     <%= link_to "Add", new_dwarf_path%>
+    <hr>
+  </div>
