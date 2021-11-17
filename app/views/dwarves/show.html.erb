@@ -26,3 +26,6 @@
 </div>
 <hr>
 <p><%= link_to 'place your bookings here', new_dwarf_offer_path(@dwarf)%></p>
+<% unless @offer.nil? %>
+<p><%= link_to 'cancel your booking', offer_path(@offer), method: "delete", data: { confirm: "Are you sure?" }%></p>
+<% end %>
