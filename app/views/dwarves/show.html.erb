@@ -1,29 +1,11 @@
-<div class="card" style="width: 18rem;">
-  <div class="dwarf-card">
-    <h1><%= @dwarf.name %></h1>
-    <h2><%= @dwarf.price %></h2>
-    <p><%= @dwarf.description %></p>
-    <p><%= @dwarf.localisation %></p>
-    <p><%= @dwarf.availability %></p>
-    <% if @dwarf.picture.attached?%>
-    <p><%= cl_image_tag @dwarf.picture.key, height: 300, width: 400, crop: :fill %></p>
-    <% end %>
-  </div>
-</div>
-<hr>
-<p><%= link_to 'place your bookings here', new_dwarf_offer_path(@dwarf)%></p>
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><%= @dwarf.name %></h5>
-    <h6 class="card-title"><%= @dwarf.price %></h6>
-    <p class="card-text"><%= @dwarf.description %></p>
-    <p class="card-text"><%= @dwarf.localisation %></p>
-    <p class="card-text"><%= @dwarf.availability %></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+  <h1><%= @dwarf.name %></h1>
+  <h2><%= @dwarf.price %></h2>
+  <p><%= @dwarf.description %></p>
+  <p><%= @dwarf.localisation %></p>
+  <p><%= @dwarf.availability %></p>
+  <% if @dwarf.picture.attached?%>
+  <p><%= cl_image_tag @dwarf.picture.key, height: 300, width: 400, crop: :fill %></p>
+  <% end %>
 <hr>
 <p><%= link_to 'place your bookings here', new_dwarf_offer_path(@dwarf)%></p>
 <% unless @offer.nil? %>
