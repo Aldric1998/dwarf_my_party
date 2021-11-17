@@ -1,2 +1,10 @@
-<h1>Dwarves#new</h1>
-<p>Find me in app/views/dwarves/new.html.erb</p>
+<h1>New dwarf</h1>
+<%= simple_form_for(@dwarf) do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :localisation %>
+  <%= f.input :picture, as: :file %>
+  <%= f.submit %>
+<% end %>

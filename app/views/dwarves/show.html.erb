@@ -1,2 +1,9 @@
-<h1>Dwarves#show</h1>
-<p>Find me in app/views/dwarves/show.html.erb</p>
+<h1>Dwarf</h1>
+<h2><%= @dwarf.price %></h2>
+<h1><%= @dwarf.name %></h1>
+<p><%= @dwarf.description %></p>
+<p><%= @dwarf.localisation %></p>
+<p><%= @dwarf.availability %></p>
+<p><%= cl_image_tag @dwarf.picture.key, height: 300, width: 400, crop: :fill %></p>
+<hr>
+<p><%= link_to 'place your bookings here', new_dwarf_offer_path(@dwarf)%></p>

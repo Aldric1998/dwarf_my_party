@@ -10,10 +10,11 @@
 
 // Your CSS partials
 @import "components/index";
-@import "pages/index";
+@import "pages/index"; 
+
 @import "users/new";
 
-
+@import "flatpickr/dist/flatpickr";
 
 .footer {
   background: #F4F4F4;
