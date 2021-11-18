@@ -1,2 +1,11 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class ="full-container">
+  <div class ="container">
+      <div class="form">
+        <%= simple_form_for [@offer, @review] do |f| %>
+          <%= f.input :comment %>
+            <p><%= f.input :rating %> </p>
+          <%= f.submit %>
+        <% end %>
+      </div>
+  </div>
+</div>
