@@ -2,15 +2,25 @@ class DwarvesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @dwarves = Dwarf.all
+    if params[:query].present?
+      sql_query = " \
+        dwarves.name @@ :query \
+        OR dwarves.description @@ :query \
+        OR dwarves.localisation @@ :query \
+        OR users.name @@ :query \
+        OR users.surname @@ :query \
+      "
+      @dwarves = Dwarf.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @dwarves = Dwarf.all
+    end
+
     @markers = @dwarves.geocoded.map do |dwarf|
       {
         lat: dwarf.latitude,
         lng: dwarf.longitude,
         info_window: render_to_string(partial: "info_window", locals: { dwarf: dwarf }),
-
       }
-
     end
   end
 
