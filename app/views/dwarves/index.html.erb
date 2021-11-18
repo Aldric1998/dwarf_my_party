@@ -3,25 +3,41 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
-<h1>Dwarves</h1>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="card">
-    <div class="box">
+<div class="card-dwarf">
     <% @dwarves.each do |dwarf| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-product">
+     <div class="box">
+        <div class="img">
           <% if dwarf.picture.attached?%>
-              <%= cl_image_tag dwarf.picture.key, height:200, width:200 %>
+              <%= cl_image_tag dwarf.picture.key %>
+            <% else %>
+              <img src="https://cdn.icon-icons.com/icons2/1769/PNG/512/4092564-about-mobile-ui-profile-ui-user-website_114033.png">
           <% end %>
-              <div class="card-product-infos">
-                <h2><%= dwarf.name %></h2>
-                <p><strong><%= dwarf.price %></strong></p>
-              </div>
-            <p> <%=dwarf.availability ? "available" : "not available"%></p>
-            <br>
-            <%= link_to "More", dwarf_path(dwarf)%>
         </div>
+        <h2>
+          <%= dwarf.name %>
+          <br>
+          <span><%= dwarf.localisation %></span>
+        </h2>
+        <p><%= dwarf.description %></p>
+        <span class="flex-column align-items-center">
+            <ul class='d-flex'>
+                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            </ul>
+            <div class='d-flex'>
+              <%= link_to "More", dwarf_path(dwarf)%>
+              <%= link_to "Delete", dwarf_path(dwarf), method: "delete", data: { confirm: "Are you sure?" }%>
+            </div>
+        </span>
       </div>
-     <%= link_to "Add", new_dwarf_path%>
      <% end %>
-  </div>
+</div>
