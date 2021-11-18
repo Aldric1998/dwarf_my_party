@@ -15,7 +15,6 @@
 @import "pages/index";
 @import "reviews/new";
 @import "components/map";
-
 @import "users/new";
 @import "dwarves/show";
 @import "flatpickr/dist/flatpickr";
@@ -51,6 +50,10 @@
   justify-content: space-between;
   background: #f2f7f2;
   display: flex;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 300;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -59,4 +62,26 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+#searchform {
+  display: flex;
+}
+
+.btn-primary {
+  margin-left: 5px;
+  height: 36px;
+  margin-top: 1px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+#companyname {
+  font-size: 25px;
+  position: relative;
+  top: 7px;
+  left: 5px;
 }
