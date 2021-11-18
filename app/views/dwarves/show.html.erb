@@ -1,14 +1,40 @@
-<h1>Dwarf</h1>
-<h2><%= @dwarf.price %></h2>
-<h1><%= @dwarf.name %></h1>
-<p><%= @dwarf.description %></p>
-<p><%= @dwarf.localisation %></p>
-<p><%= @dwarf.availability %></p>
-<% if @dwarf.picture.attached?%>
-<p><%= cl_image_tag @dwarf.picture.key, height: 300, width: 400, crop: :fill %></p>
-<%end%>
-<hr>
-<p><%= link_to 'place your bookings here', new_dwarf_offer_path(@dwarf)%></p>
-<% unless @offer.nil? %>
-<p><%= link_to 'cancel your booking', offer_path(@offer), method: "delete", data: { confirm: "Are you sure?" }%></p>
-<% end %>
+<body>
+  <div class="descriptive"> <h1>Welcome on the personal page of: </h1>
+    <h1><%= @dwarf.name %></h1>
+    <div class="image-show">
+      <% if @dwarf.picture.attached?%>
+        <%= cl_image_tag @dwarf.picture.key, height: 300, width: 400, crop: :fill %>
+      <%end%>
+      <hr>
+      <div class="text-image">
+        <h2> price: <%= @dwarf.price %> € / day </h2>
+        <p> description: <%= @dwarf.description %></p>
+        <p> area: <%= @dwarf.localisation %></p>
+      </div>
+      <hr>
+    </div>
+    <hr>
+    <p> <strong>These are the existing bookings : </strong><% @dwarf.offers.each do |offer| %></p>
+      <p> from: <%= offer.starts_at %></p>
+      <p> until: <%= offer.ends_at %></p>
+      <p> comment: <%= offer.message %></p>
+    <% end %>
+    <hr>
+    <% @offers.each do |offer|%>
+        <p> <strong>Your review about your favorite dwarf: </strong><% @dwarf.offers.each do |offer| %></p>
+          <p><%= offer.review.comment if offer.review%></p>
+          <p> rating: <%= offer.review.rating if offer.review%> / 5 </p>
+        <% end %>
+        <% end %>
+      <hr>
+  </div>
+
+  <div class="links">
+  <p><%= link_to 'place your bookings here', new_dwarf_offer_path(@dwarf), class: "btn btn-ghost"%></p>
+    <% @offers.each do |offer|%>
+    <p><%= link_to 'cancel your booking', offer_path(offer), class: "btn btn-ghost", method: "delete", data: { confirm: "Are you sure?" }%></p>
+    <hr>
+    <p><%= link_to 'review this dwarf', new_offer_review_path(offer), class: "btn btn-ghost"%> </p>
+    <% end %>
+  </div>
+</body>

@@ -20,6 +20,10 @@ class OffersController < ApplicationController
   def destroy
     @offer = Offer.find(params[:id])
     @dwarf = @offer.dwarf
+    if @offer.review
+      @review = @offer.review
+      @review.destroy
+    end
     @offer.destroy
     redirect_to dwarf_path(@dwarf)
   end
