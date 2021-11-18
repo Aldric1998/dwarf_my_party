@@ -28,7 +28,7 @@ class DwarvesController < ApplicationController
 
   def show
     @dwarf = Dwarf.find(params[:id])
-    @offer = @dwarf.offers.where(user: current_user).last
+    @offers = @dwarf.offers.where(user: current_user)
   end
 
   private

@@ -13,15 +13,16 @@
 @import "dwarves/new";
 @import "dwarves/index";
 @import "pages/index";
+@import "reviews/new";
 @import "components/map";
 
 @import "users/new";
-
+@import "dwarves/show";
 @import "flatpickr/dist/flatpickr";
 @import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
 
 .footer {
-  background: #F4F4F4;
+  background: #f2f7f2;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,7 +49,7 @@
 }
 .navbar-lewagon {
   justify-content: space-between;
-  background: #EFF1F3;
+  background: #f2f7f2;
   display: flex;
 }
 

@@ -1,13 +1,25 @@
 class ReviewsController < ApplicationController
+  def new
+    @review = Review.new
+    @offer = Offer.find(params[:offer_id])
+  end
+
   def create
-    @offer = offer.find(params[:offer_id])
+    @offer = Offer.find(params[:offer_id])
     @review = Review.new(review_params)
     @review.offer = @offer
     if @review.save
-      redirect_to offer_path(@offer)
+      redirect_to dwarf_path(@offer.dwarf)
     else
-      render "offers/show"
+      render :new
     end
+  end
+
+  def destroy
+    @offer = Offer.find(params[:id])
+    @dwarf = @offer.dwarf
+    @offer.destroy
+    redirect_to dwarf_path(@dwarf)
   end
 
   private
