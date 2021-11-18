@@ -12,4 +12,6 @@ class Dwarf < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+  geocoded_by :localisation
+  after_validation :geocode, if: :will_save_change_to_localisation?
 end

@@ -14,6 +14,14 @@ class DwarvesController < ApplicationController
     else
       @dwarves = Dwarf.all
     end
+
+    @markers = @dwarves.geocoded.map do |dwarf|
+      {
+        lat: dwarf.latitude,
+        lng: dwarf.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { dwarf: dwarf }),
+      }
+    end
   end
 
   def new
@@ -30,7 +38,7 @@ class DwarvesController < ApplicationController
 
   def show
     @dwarf = Dwarf.find(params[:id])
-    @offer = @dwarf.offers.where(user: current_user).last
+    @offers = @dwarf.offers.where(user: current_user)
   end
 
   private

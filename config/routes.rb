@@ -6,8 +6,11 @@ Rails.application.routes.draw do
     resources :offers, only: %i[new create]
   end
   resources :offers, only: %i[destroy] do
-    resources :reviews, only: %i[create]
+    resources :reviews, only: %i[new create]
   end
+
+  resources :reviews, only: %i[destroy]
+
   root to: 'pages#home'
 end
   # get 'dwarves/index'
