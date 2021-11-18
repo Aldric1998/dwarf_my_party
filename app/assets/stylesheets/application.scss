@@ -13,10 +13,12 @@
 @import "dwarves/new";
 @import "dwarves/index";
 @import "pages/index";
+@import "components/map";
 
 @import "users/new";
 
 @import "flatpickr/dist/flatpickr";
+@import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder';
 
 .footer {
   background: #F4F4F4;
