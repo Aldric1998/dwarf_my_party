@@ -1,27 +1,27 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 <h1>Dwarves</h1>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="card">
     <div class="box">
     <% @dwarves.each do |dwarf| %>
-        <div class="img">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card-product">
           <% if dwarf.picture.attached?%>
               <%= cl_image_tag dwarf.picture.key, height:200, width:200 %>
           <% end %>
+              <div class="card-product-infos">
+                <h2><%= dwarf.name %></h2>
+                <p><strong><%= dwarf.price %></strong></p>
+              </div>
+            <p> <%=dwarf.availability ? "available" : "not available"%></p>
+            <br>
+            <%= link_to "More", dwarf_path(dwarf)%>
         </div>
-        <h2><%= dwarf.name %><br><span><%= dwarf.location %></span></h2>
-        <p><%= dwarf.description %></p>
-        <span>
-            <ul>
-                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-            </ul>
-        </span>
-    </div>
-</div>
+      </div>
+     <%= link_to "Add", new_dwarf_path%>
+     <% end %>
+  </div>

@@ -1,0 +1,99 @@
+.mapboxgl-popup-content {
+  padding: 0px !important;
+  border-radius: 12px !important;
+
+}
+.card {
+  position: relative !important;
+  display: block !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  text-decoration: none !important;
+  border-radius: 12px;
+}
+
+.card__image {
+  width: 100% !important;
+  height: auto !important;
+}
+.card__overlay {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1 !important;
+
+  background-color: white !important;
+  transform: translateY(100%) !important;
+  transition: .2s ease-in-out !important;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0) !important;
+}
+.card__header {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 2em !important;
+  padding: 2em !important;
+  border-radius: calc(var(--curve) * 1px) 0 0 0 !important;
+  background-color: var(--surface-color) !important;
+  transform: translateY(-100%) !important;
+  transition: .2s ease-in-out !important;
+}
+
+.card__arc {
+  width: 80px !important;
+  height: 80px !important;
+  position: absolute !important;
+  bottom: 100% !important;
+  right: 0 !important;
+  z-index: 1 !important;
+}
+
+.card__arc path {
+  fill: var(--surface-color) !important;
+
+}
+
+.card:hover .card__header {
+  transform: translateY(0) !important;
+}
+
+.card__thumb {
+  flex-shrink: 0 !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+}
+
+.card__title {
+  font-size: 1em !important;
+  margin: 0 0 .3em !important;
+  color: #6A515E !important;
+}
+
+.card__tagline {
+  display: block !important;
+  margin: 1em 0 !important;
+  font-family: "MockFlowFont" !important;
+  font-size: .8em !important;
+  color: #D7BDCA !important;
+}
+
+.card__status {
+  font-size: .8em !important;
+  color: #D7BDCA !important;
+}
+
+.card__description {
+  padding: 0 2em 2em !important;
+  margin: 0 !important;
+  color: #D7BDCA !important;
+  font-family: "MockFlowFont" !important;
+  display: -webkit-box;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 3 !important;
+  overflow: hidden !important;
+}
