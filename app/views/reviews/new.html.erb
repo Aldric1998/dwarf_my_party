@@ -3,7 +3,7 @@
       <div class="form">
         <%= simple_form_for [@offer, @review] do |f| %>
           <%= f.input :comment %>
-          <p><strong> Give a rating from 1 to 5: <strong><%= f.input :rating %> </p>
+            <p><%= f.input :rating %> </p>
           <%= f.submit %>
         <% end %>
       </div>

@@ -1,9 +1,9 @@
 body {
-  background-color: #ccd4d2;
+  background-color: #dee7ec;
 }
 
 .descriptive {
-  background-color: #cfe2cf;
+  background-color: #a3aabd;
   padding: 20px 20px;
   text-align: center;
   border-radius: 5px;
@@ -19,7 +19,7 @@ body {
 }
 
 .links {
-  background-color: #cfe2cf;
+  background-color: #a3aabd;
   margin: 20px 55px;
   display: flex;
   justify-content: center;
@@ -41,6 +41,7 @@ body {
   border-radius: 6px;
   img{
     object-position: bottom;
+    border-radius: 5px;
   }
 }
 
@@ -56,4 +57,8 @@ body {
 }
 .btn-ghost:hover {
   opacity: 1;
+}
+
+#welcome {
+  margin-bottom: 20px;
 }

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create]
   end
 
-  resources :reviews, only: %i[:destroy]
+  resources :reviews, only: %i[destroy]
 
   root to: 'pages#home'
 end
