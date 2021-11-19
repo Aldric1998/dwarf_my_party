@@ -47,10 +47,10 @@
   color: #D23333;
 }
 .navbar-lewagon {
-  justify-content: space-between;
+  justify-content: space-between !important;
   background: #f2f7f2;
-  display: flex;
-  position: sticky;
+  display: flex !important;
+  position: sticky !important;
   top: 0px;
   width: 100%;
   z-index: 300;
@@ -75,7 +75,7 @@
 }
 
 .navbar-brand {
-  display: flex;
+  display: flex !important;
   align-items: center;
 }
 
