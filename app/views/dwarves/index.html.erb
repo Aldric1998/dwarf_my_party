@@ -7,10 +7,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<% if policy(Dwarf).create? %>
-  <%= link_to "New Dwarf", new_dwarf_path %>
-<% end %>
-
+<%= link_to "add", new_dwarf_path%>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="card-dwarf">
     <% @dwarves.each do |dwarf| %>
@@ -19,7 +16,7 @@
           <% if dwarf.picture.attached?%>
               <%= cl_image_tag dwarf.picture.key %>
             <% else %>
-              <%= link_to , dwarf_path(dwarf) src="https://cdn.icon-icons.com/icons2/1769/PNG/512/4092564-about-mobile-ui-profile-ui-user-website_114033.png"%>
+              <img src="https://cdn.icon-icons.com/icons2/1769/PNG/512/4092564-about-mobile-ui-profile-ui-user-website_114033.png">
           <% end %>
         </div>
         <h2>
@@ -38,10 +35,9 @@
             </ul>
             <div class='d-flex'>
               <%= link_to "More", dwarf_path(dwarf)%>
-
-                <% if policy(dwarf).destroy? %>
-                  <%= link_to "Delete", dwarf_path(dwarf), method: "delete", data: { confirm: "Are you sure?" }%>
-                <% end %>
+              <% if dwarf.user == current_user %>
+                <%= link_to "Delete", dwarf_path(dwarf), method: "delete", data: { confirm: "Are you sure?" }%>
+              <% end %>
 
             </div>
         </span>
