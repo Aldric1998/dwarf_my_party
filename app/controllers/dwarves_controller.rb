@@ -2,6 +2,7 @@ class DwarvesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
+    @dwarves= policy_scope(Dwarf)
     if params[:query].present?
       sql_query = " \
         dwarves.name @@ :query \
@@ -26,10 +27,12 @@ class DwarvesController < ApplicationController
 
   def new
     @dwarf = Dwarf.new
+    authorize @dwarf
   end
 
   def create
     @dwarf = Dwarf.new(dwarf_params)
+    authorize @dwarf
     @dwarf.user = current_user
     @dwarf.availability = true
     @dwarf.save
@@ -37,12 +40,21 @@ class DwarvesController < ApplicationController
   end
 
   def show
+
     @dwarf = Dwarf.find(params[:id])
+    authorize @dwarf
     @offers = @dwarf.offers.where(user: current_user)
+    @markers = @dwarf.geocode
+    @markers = [{
+        lat: @dwarf.latitude,
+        lng: @dwarf.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { dwarf: @dwarf }),
+      }]
   end
 
   def destroy
     @dwarf = Dwarf.find(params[:id])
+    authorize @dwarf
     @dwarf.destroy
     redirect_to dwarves_path
   end

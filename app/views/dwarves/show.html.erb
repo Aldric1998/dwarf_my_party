@@ -1,6 +1,11 @@
 <body>
   <div class="descriptive">
 
+  <div id="map"
+     style="width: 100%; height: 300px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
     <div class="image-show">
       <% if @dwarf.picture.attached?%>
         <%= cl_image_tag @dwarf.picture.key, height: 300, width: 400, crop: :fill %>
@@ -8,11 +13,11 @@
       <hr>
       <div class="text-image">
         <div id="welcome">
-          <h2><strong> Name: <%= @dwarf.name %></strong></h1>
+          <h2><%= @dwarf.name %></h1>
         </div>
-        <h2 class="price-card"> price: <%= @dwarf.price %> € / day </h2>
+        <h2 class="price-card"><%= @dwarf.price %> € / day </h2>
         <p> description: <%= @dwarf.description %></p>
-        <p> area: <%= @dwarf.localisation %></p>
+        <p> 📍 <%= @dwarf.localisation %></p>
       </div>
       <hr>
     </div>
