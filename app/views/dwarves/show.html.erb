@@ -8,11 +8,11 @@
       <hr>
       <div class="text-image">
         <div id="welcome">
-          <h2><strong> Name: <%= @dwarf.name %></strong></h1>
+          <h2><%= @dwarf.name %></h1>
         </div>
-        <h2 class="price-card"> price: <%= @dwarf.price %> € / day </h2>
+        <h2 class="price-card"><%= @dwarf.price %> € / day </h2>
         <p> description: <%= @dwarf.description %></p>
-        <p> area: <%= @dwarf.localisation %></p>
+        <p> 📍 <%= @dwarf.localisation %></p>
       </div>
       <hr>
     </div>
