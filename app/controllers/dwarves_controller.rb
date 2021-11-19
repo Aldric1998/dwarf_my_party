@@ -41,6 +41,12 @@ class DwarvesController < ApplicationController
     @offers = @dwarf.offers.where(user: current_user)
   end
 
+  def destroy
+    @dwarf = Dwarf.find(params[:id])
+    @dwarf.destroy
+    redirect_to dwarves_path
+  end
+
   private
 
   def dwarf_params

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # resources :dwarves
 
-  resources :dwarves, only: %i[index show new create] do
+  resources :dwarves, only: %i[index show new create destroy] do
     resources :offers, only: %i[new create]
   end
   resources :offers, only: %i[destroy] do
