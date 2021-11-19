@@ -19,7 +19,7 @@
           <% if dwarf.picture.attached?%>
               <%= cl_image_tag dwarf.picture.key %>
             <% else %>
-              <img src="https://cdn.icon-icons.com/icons2/1769/PNG/512/4092564-about-mobile-ui-profile-ui-user-website_114033.png">
+              <%= link_to , dwarf_path(dwarf) src="https://cdn.icon-icons.com/icons2/1769/PNG/512/4092564-about-mobile-ui-profile-ui-user-website_114033.png"%>
           <% end %>
         </div>
         <h2>
