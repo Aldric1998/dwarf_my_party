@@ -5,18 +5,15 @@ body {
     background:#fbfbfb;
 }
 .card-dwarf {
-    // position:absolute;
-    // top:50%;
-    // left:50%;
-    // transform:translate(-50%,-50%);
-    // width:300px;
     min-height:400px;
     background:#fff;
     box-shadow:0 20px 50px rgba(0,0,0,.1);
-    border-radius:10px;
+    // border-radius:10px;
     transition:0.5s;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 65%;
+    background-color: #e3e0cf;
 }
 .card-dwarf:hover {
     box-shadow:0 30px 70px rgba(0,0,0,.2);
@@ -30,6 +27,9 @@ body {
     flex-direction: column;
     justify-content: space-between;
     box-shadow: 2px 2px 5px rgba(0,0,0,.1);
+    margin: 12px;
+    background-color: whitesmoke;
+    border-radius: 4px;
 }
 .card-dwarf .box .img {
     width:120px;
@@ -49,11 +49,12 @@ body {
 }
 .card-dwarf .box h2 span {
     font-size:14px;
-    background:#e91e63;
-    color:#fff;
+    background:#C5D5CB;
+    color: black;
     display:inline-block;
     padding:4px 10px;
     border-radius:15px;
+    margin-top: 5px;
 }
 .card-dwarf .box p {
     color:#262626;
@@ -80,4 +81,33 @@ body {
 .card-dwarf .box ul li:hover a {
     color:#e91e63;
     transform:rotateY(360deg);
+}
+
+#map-cards-align {
+  display: flex;
+  background-color: #E3E0CF
+}
+
+.btn-danger a {
+  color: whitesmoke;
+  opacity: 0,6;
+}
+
+.btn-danger a:hover {
+  color: whitesmoke;
+  opacity: 1;
+}
+
+.btn-info {
+  position: absolute;
+}
+
+.btn-info a {
+  color: whitesmoke;
+  opacity: 0.6;
+}
+
+.btn-info a:hover {
+  color: whitesmoke;
+  opacity: 1;
 }
