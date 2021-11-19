@@ -1,5 +1,10 @@
 <div class="card">
-      <p id="imagemap" class="card__image"><%= cl_image_tag dwarf.picture.key, height: 200, width: 200 %></p>
+      <p id="imagemap" class="card__image">
+      <% if dwarf.picture.attached?%>
+              <%= cl_image_tag dwarf.picture.key, height: 200, width: 200 %>
+            <% else %>
+              <%= image_tag "https://cdn.icon-icons.com/icons2/1769/PNG/512/4092564-about-mobile-ui-profile-ui-user-website_114033.png" %></p>
+          <% end %>
       <div class="card__overlay">
         <div class="card__header" >
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg" ><path /></svg>
