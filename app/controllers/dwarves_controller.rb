@@ -39,6 +39,12 @@ class DwarvesController < ApplicationController
   def show
     @dwarf = Dwarf.find(params[:id])
     @offers = @dwarf.offers.where(user: current_user)
+    @markers = @dwarf.geocode
+    @markers = [{
+        lat: @dwarf.latitude,
+        lng: @dwarf.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { dwarf: @dwarf }),
+      }]
   end
 
   def destroy
